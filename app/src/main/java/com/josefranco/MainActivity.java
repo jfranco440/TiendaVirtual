@@ -3,6 +3,7 @@ package com.josefranco;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.josefranco.tiendavirtual.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvProductsMain;
 
     private Toolbar topAppBar;
+    private  User userSession = new User();
+    private ImageView userImageProfil;
 
 
 
@@ -31,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadFakeData();
+        userImageProfil = findViewById(R.id.iv_profile_home_user);
+        Picasso.get().load(userSession.getUrlImageProfil()).into(userImageProfil);
 
         rvProductsMain= findViewById(R.id.rv_product_main);
 
@@ -87,5 +93,12 @@ public class MainActivity extends AppCompatActivity {
         listProducts.add(product1);
         listProducts.add(product2);
         listProducts.add(product3);
+
+        userSession.setName("Jose");
+        userSession.setEmail("jfranco440Qunab.edu.co");
+        userSession.setPassword("qwerty");
+        userSession.setPhobne("3102819222");
+        userSession.setUrlImageProfil("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg");
+
     }
 }

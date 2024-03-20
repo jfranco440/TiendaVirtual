@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.josefranco.tiendavirtual.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -64,6 +65,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         public void associate(Product myProduct) {
             nameProduct.setText(myProduct.getName());
             priceProduct.setText(myProduct.getPrice().toString());
+            Picasso.get().load(myProduct.getUrlImage()).into(myImage);
+
 
         }
     }
